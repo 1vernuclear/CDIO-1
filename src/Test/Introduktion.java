@@ -29,10 +29,12 @@ public class Introduktion {
         while(true) {
             //Spiller 1 ruller terning
             System.out.print(getName1() + " rul terning: ");
-            System.out.print(getName1() + " slog: " + rulTerning1() + "\n");
+            rulTerning1();
+            System.out.print(getName1() + " slog: " + getValueDie1() + "\n");
             //Spiller 2 ruller terning
             System.out.print(getName2() + " rul terning: ");
-            System.out.println(getName2() + " slog: " + rulTerning2());
+            rulTerning2();
+            System.out.println(getName2() + " slog: " + getValueDie2());
             //Når spillerne ikke har slået det samme bliver en "starter" fundet til det rigtige spil.
             //getValueDie metoden returnerer terningens værdi efter seneste slag.
             if(getValueDie1() != getValueDie2()){
@@ -41,6 +43,8 @@ public class Introduktion {
                     break;
                 }else{
                     System.out.println(getName2() + " slog højest og starter derfor.");
+                    System.out.println("Hermed er " + getName2() + " Spiller1 og vice versa.");
+                    spillerSkift();
                     break;
                 }
             }//I tilfælde af ens slag skal spillerne slå om.
@@ -50,6 +54,11 @@ public class Introduktion {
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         }
     }
+    public static void spillerSkift(){
+        String placeholder = getName1();
+        spiller1 = getName2();
+        spiller2 = placeholder;
+    }
     public static int getValueDie2(){
         return valueDie2;
     }
@@ -57,15 +66,13 @@ public class Introduktion {
         return valueDie1;
     }
     //ruller terning og returnerer værdien
-    public static int rulTerning1(){
+    public static void rulTerning1(){
         rulTerning = input.next();
         valueDie1 = number.nextInt(6)+1;
-        return valueDie1;
     }
-    public static int rulTerning2(){
+    public static void rulTerning2(){
         rulTerning = input.next();
         valueDie2 = number.nextInt(6)+1;
-        return valueDie2;
     }
     public static void setName2(){
         System.out.print("Spiller 2 indtast dit navn: ");
