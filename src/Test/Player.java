@@ -2,7 +2,7 @@ package Test;
 
 public class Player {
     private String name;
-    private int score;
+    private int score = 0;
 
     public Player(String name) {
         this.name = name;
@@ -19,8 +19,8 @@ public class Player {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name){
+        this.name = this.name;
     }
+
 }

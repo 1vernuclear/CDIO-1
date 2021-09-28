@@ -9,8 +9,8 @@ public class SomethingSomething extends Introduktion {
     public static void rulTerninger(){
         System.out.print("Slå med terningerne: ");
         input.next();
-        valueDie1 = number.nextInt(6)+1;
-        valueDie2 = number.nextInt(6)+1;
+        //valueDie1 = number.nextInt(6)+1;
+        //valueDie2 = number.nextInt(6)+1;
     }
     public static void setKastSum(){
         kastSum = getValueDie1() + getValueDie2();

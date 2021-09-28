@@ -1,42 +1,16 @@
 package Spil;
 import Test.*;
 
-public class Spillet extends SomethingSomething {
+public class Spillet{
+
     public static void main(String[] args) {
-        //Spillerne indtaster deres ig names for den resterende del af spillet
-        setName1();
-        setName2();
-        //Halv intro til spil + slå om at starte
+        //kalder 'slåomstart'-metoden fra Introduktions klassen.
         Introduktion.slåOmStart();
 
-        while(getPointSumSpiller1() < 40 && getPointSumSpiller2() < 40){
-            int i = 1;
-            while(i < 3){
-                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
-                rulTerninger();
-                setKastSum();
-                if(i % 2 == 0){
-                    System.out.print(getName2() + " har slået " + getValueDie1() + " og " + getValueDie2());
-                    System.out.print(" og scorer dermed " + getKastSum() + " point." + "\n");
-                    setPointSumSpiller2();
-                    System.out.println(getName2() + " har nu en score på: " + getPointSumSpiller2());
-                    if(getEns()){
-                        System.out.println("Fordi du slog 2 ens må du slå igen.");
-                        i--;
-                    }
-                }else{
-                    System.out.print(getName1() + " har slået " + getValueDie1() + " og " + getValueDie2());
-                    System.out.print(" og scorer dermed " + getKastSum() + " point." + "\n");
-                    setPointSumSpiller1();
-                    System.out.println(getName1() + " har nu en score på: " + getPointSumSpiller1());
-                    if(getEns()){
-                        System.out.println("Fordi du slog 2 ens må du slå igen.");
-                        i--;
-                    }
-                }
-                i++;
-            }
+        //Introduktionen fordeler spiller 1 og 2, således at player1 og player initieres med angivne navne fra Introduktion.
+        Player player1 = new Player(Introduktion.player1());
+        Player player2 = new Player(Introduktion.player2());
 
-        }
+
     }
 }
