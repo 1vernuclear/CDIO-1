@@ -4,19 +4,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Introduktion{
-    static Scanner input = new Scanner(System.in);
-    static Random number = new Random();
+    private final Scanner input = new Scanner(System.in);
+    private final Random number = new Random();
 
-    private static Player player1;
-    private static Player player2;
-    private static String userinput; //variablen sørger for at brugeren aktivt skal slå med terningerne.
+    private Player player1;
+    private Player player2;
+    private String userinput; //variablen sørger for at brugeren aktivt skal slå med terningerne.
 
-    private static int i = 0; //variablen tages i brug i tilfælde af spillerskift
+    private int i = 0; //variablen tages i brug i tilfælde af spillerskift
 
-    private static int valueDie1 = 0;
-    private static int valueDie2 = 0;
+    private int valueDie1 = 0;
+    private int valueDie2 = 0;
 
-    public static void slåOmStart(){
+    public void slåOmStart(){
         player1 = new Player(inputName());
         System.out.println("Spiller1 = " + player1.getName());
         player2 = new Player(inputName());
@@ -63,7 +63,7 @@ public class Introduktion{
     }
     //Hvis player2 slog højest er i=1. Hermed vil player2 blive til player1 i Spillet-klassen og vice versa.
     //metoden bliver brugt til at initierer Player-constructoren fra Spillet-klassen.
-    public static String player1(){
+    public String player1(){
         String name;
         if(i == 1)
             name = player2.getName();
@@ -72,7 +72,7 @@ public class Introduktion{
         return name;
     }
 
-    public static String player2(){
+    public String player2(){
         String name;
         if(i == 1)
             name = player1.getName();
@@ -80,25 +80,25 @@ public class Introduktion{
             name = player2.getName();
         return name;
     }
-    public static String inputName(){ //Hjælpemetode til Player-constructor
+    public String inputName(){ //Hjælpemetode til Player-constructor
         System.out.print("Spiller indtast navn: ");
         return input.next();
     }
 
-    public static int getValueDie2(){
+    public int getValueDie2(){
         return valueDie2;
     }
-    public static int getValueDie1(){
+    public int getValueDie1(){
         return valueDie1;
     }
 
     //ruller terning og returnerer værdien
-    public static void rulTerning1(){
+    public void rulTerning1(){
         userinput = input.next();
         valueDie1 = number.nextInt(6)+1;
     }
 
-    public static void rulTerning2(){
+    public void rulTerning2(){
         userinput = input.next();
         valueDie2 = number.nextInt(6)+1;
     }

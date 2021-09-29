@@ -1,37 +1,39 @@
 package Test;
 
+import java.util.Scanner;
+
 public class SomethingSomething extends Introduktion {
+    private final Scanner input = new Scanner(System.in);
+    int pointSumSpiller1 = 0;
+    int pointSumSpiller2 = 0;
+    int kastSum;
 
-    static int pointSumSpiller1 = 0;
-    static int pointSumSpiller2 = 0;
-    static int kastSum;
-
-    public static void rulTerninger(){
+    public void rulTerninger(){
         System.out.print("Slå med terningerne: ");
         input.next();
         //valueDie1 = number.nextInt(6)+1;
         //valueDie2 = number.nextInt(6)+1;
     }
-    public static void setKastSum(){
+    public void setKastSum(){
         kastSum = getValueDie1() + getValueDie2();
     }
-    public static int getKastSum(){
+    public int getKastSum(){
         return kastSum;
     }
-    public static void setPointSumSpiller1(){
+    public void setPointSumSpiller1(){
         pointSumSpiller1 += getKastSum();
     }
-    public static int getPointSumSpiller1(){
+    public int getPointSumSpiller1(){
         return pointSumSpiller1;
     }
-    public static void setPointSumSpiller2(){
+    public void setPointSumSpiller2(){
         pointSumSpiller2 += getKastSum();
     }
-    public static int getPointSumSpiller2(){
+    public int getPointSumSpiller2(){
         return pointSumSpiller2;
     }
 
-    public static boolean getEns(){
+    public boolean getEns(){
         boolean bool = false;
         if(getValueDie1() == getValueDie2())
             bool = true;
