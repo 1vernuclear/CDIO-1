@@ -5,38 +5,37 @@ public class Die {
     private int faceValue, numberOfSides;
 
     /**
-     * Konstruktør der sætter antal sider for terningen
-     * @param sides int der definere antal sider
+     * Constructor sets amount of sides of die
+     * @param sides: int, defines number of sides
      */
     public Die (int sides){
         numberOfSides = sides;
     }
 
     /**
-     * Konstruktør der sætter antal sidder til 6 for terningen
+     * Constructor sets number of sides to 6
      */
     public Die {
         numberOfSides = 6;
     }
 
     /**
-     * Metoden ruller terningen og returnerer et hel tal,
-     *     der benyttes som terningens øjne
+     * Rolls die and returns integer
      */
     public int roll {
         faceValue = (int)((Math.random()*numberOfSides)+1);
     }
 
     /**
-     * Metode til at sætte en specifik værdi for terningens øjne
-     * @param value int der definerer den nye faceValue.
+     * Sets specific value of eyes on die
+     * @param value: int, sets new value of faceValue.
      */
     public void setFaceValue(int value) {
         faceValue = value;
     }
 
     /**
-     *  Metode returnere værdien af terningens øjne
+     *  Return face value of die
      */
     public int getFaceValue {
         return faceValue;
