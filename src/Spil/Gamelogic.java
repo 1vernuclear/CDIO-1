@@ -21,13 +21,16 @@ public class Gamelogic{
     public void setThrowSum(){
         sum = die1.getFaceValue() + die2.getFaceValue();
     }
+
     public void playerTurn(Player x) {
         player = x;
         for (int i = 1; i < 2; i++) {
             System.out.print(player.getName());
             player.setScore(throwDice());
 
-            if (doubleSix(die1.getFaceValue())) {
+            if(gameWon(player)) {
+                System.out.println("Tillyke " + player.getName() + "! Du har vundet spillet!");
+            }else if (doubleSix(die1.getFaceValue())) {
                 System.out.println("Hvis du slår dobblet 6 på dit næste slag, vinder du spillet."
                         + " Fordi du slog dobbelt får du et ekstra slag.");
                 for (int j = 1; j < 2; j++) {
@@ -35,10 +38,20 @@ public class Gamelogic{
                     if(doubleDoubleSix())
                         System.out.println(player.getName() + " har vundet spillet ved at slå dobbelt 6 to gange i træk.");
                 }
-            }else if(gameWon(player)){
-                System.out.println("Tillyke " + player.getName() + "! Du har vundet spillet!");
+            }else if (resetCheck()) {
+                System.out.println(player.getName() + " slog dobbelt 1 og mister alle sine point... :(");
+                System.out.println(player.getName() + " har dermed en score på: " + player.getScore());
+                player.scoreReset();
             }else if(getEns()){
+                System.out.println("Fordi du slog to ens får du endnu en tur!");
+                i--;
             }
+            if(player.getScore() < 40){
+                System.out.println(player.getName() + " har dermed en score på: " + player.getScore());
+            }else if(player.getScore() >= 40){
+                System.out.println("Slå to ens for at vinde spillet!");
+            }
+            System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         }
     }
     public int getThrowSum(){
@@ -54,11 +67,16 @@ public class Gamelogic{
         player = x;
         boolean bool = false;
         if(player.getScore() > 40){
-            if(die1.getFaceValue() == die2.getFaceValue())
+            if(die1.getFaceValue() == die2.getFaceValue()) {
                 bool = true;
+                gameWon = true;
+            }
         }else if(gameWon)
             bool = true;
         return bool;
+    }
+    public boolean checkGameWon(){
+        return gameWon;
     }
     public boolean doubleSix(int faceValue){
         boolean bool = false;
@@ -69,21 +87,21 @@ public class Gamelogic{
     }
     public boolean doubleDoubleSix(){
         boolean bool = false;
-        if(doubleSix(die1.getFaceValue()))
+        if(getEns() && die1.getFaceValue() == 6)
             gameWon = true;
             bool = true;
         return bool;
     }
     public boolean resetCheck(){
         boolean bool = false;
-        if(die1.getFaceValue() == 1)
+        if((die1.getFaceValue() == 1) && getEns())
             bool = true;
         return bool;
     }
 
     public boolean getEns(){
         boolean bool = false;
-        if(die1.getFaceValue() == die2.getFaceValue() && die1.getFaceValue() != 1)
+        if(die1.getFaceValue() == die2.getFaceValue())
             bool = true;
         return bool;
     }
