@@ -1,20 +1,19 @@
-package Test;
+package Spil;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Introduktion{
+public class Introduction{
     private final Scanner input = new Scanner(System.in);
     private final Random number = new Random();
 
     private Player player1;
     private Player player2;
-    private String userinput; //variablen sørger for at brugeren aktivt skal slå med terningerne.
 
-    private int i = 0; //variablen tages i brug i tilfælde af spillerskift
+    private Die die1 = new Die();
+    private Die die2 = new Die();
 
-    private int valueDie1 = 0;
-    private int valueDie2 = 0;
+    private int i = 0; // The variable is taken into use, in case of a change of player
 
     public void slåOmStart(){
         player1 = new Player(inputName());
@@ -30,39 +29,45 @@ public class Introduktion{
                 + "\ntastes et tilfældigt tal bogstav ind i konsolen. Derefter trykkes der på enter.");
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         System.out.print("Når i er klar til at starte: skriv \"start\" og tast enter: ");
-        userinput = input.next();
+        userinput();
 
         for(int j = 0; j < 1; j++) {
-            //Spiller 1 ruller terning
+            // Player 1 rolls the dice
             System.out.print(player1.getName() + " rul terning: ");
-            rulTerning1();
-            System.out.print(player1.getName() + " slog: " + getValueDie1() + "\n");
-            //Spiller 2 ruller terning
+            userinput();
+            die1.rollDie();
+            System.out.print(player1.getName() + " slog: " + die1.getFaceValue() + "\n");
+            // Player 2 rolls the dice
             System.out.print(player2.getName() + " rul terning: ");
-            rulTerning2();
-            System.out.println(player2.getName() + " slog: " + getValueDie2());
+            userinput();
+            die2.rollDie();
+            System.out.println(player2.getName() + " slog: " + die2.getFaceValue());
 
-            if(getValueDie1() != getValueDie2()){ //tester om slagene er forskellige.
+            if(die1.getFaceValue() != die2.getFaceValue()){ // Checks if the value of the rolls are different from one another
 
-                //hvis slagene er forskellige testes for størst slag. Hvis spiller1 slår højest sker ingen ændringer.
-                if(getValueDie1() > getValueDie2()){
+                // If the rolls are different, it checks which roll was highest, if player 1 rolled the highest, no changes are made.
+                if(die1.getFaceValue() > die2.getFaceValue()){
                     System.out.println(player1.getName() + " slog højest og starter derfor.");
                 }else{
-                    //hvis spiller2 har slået højest byttes der om på de to spillere.
+                    // If Player 2 rolled the highest, the players are swapped around
                     System.out.println(player2.getName() + " slog højest og starter derfor.");
                     System.out.println("Hermed er " + player2.getName() + " Spiller1 og vice versa.");
                     i++;
                 }
-            }//I tilfælde af ens slag skal spillerne slå om.
+            }// In the case of both players rolling the same, they are prompted to roll again
             else{
-                System.out.println("I slog begge: " + getValueDie1() + "\nSlå igen..!" );
-                j--; //ved omslag tælles j ned, så der bliver slået om til en vinder er fundet.
+                System.out.println("I slog begge: " + die1.getFaceValue() + "\nSlå igen..!" );
+                j--; // In case of rerolls, the process is repeated for j untill a winner is found
             }
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         }
     }
-    //Hvis player2 slog højest er i=1. Hermed vil player2 blive til player1 i Spillet-klassen og vice versa.
-    //metoden bliver brugt til at initierer Player-constructoren fra Spillet-klassen.
+    public void userinput(){
+        input.next();
+    }
+
+    // If player 2 rolled the highest, then i=1. Hvis in turn makes player 2 the new player 1, and vice versa.
+    // The metode is used to initialize the player-constructor from the game class
     public String player1(){
         String name;
         if(i == 1)
@@ -80,27 +85,10 @@ public class Introduktion{
             name = player2.getName();
         return name;
     }
-    public String inputName(){ //Hjælpemetode til Player-constructor
+    public String inputName(){ // Metode to help the player-constructor
         System.out.print("Spiller indtast navn: ");
         return input.next();
     }
 
-    public int getValueDie2(){
-        return valueDie2;
-    }
-    public int getValueDie1(){
-        return valueDie1;
-    }
-
-    //ruller terning og returnerer værdien
-    public void rulTerning1(){
-        userinput = input.next();
-        valueDie1 = number.nextInt(6)+1;
-    }
-
-    public void rulTerning2(){
-        userinput = input.next();
-        valueDie2 = number.nextInt(6)+1;
-    }
 
 }

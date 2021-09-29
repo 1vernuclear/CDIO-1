@@ -1,4 +1,4 @@
-package Test;
+package Spil;
 
 public class Player {
     private String name;
@@ -8,12 +8,16 @@ public class Player {
         this.name = name;
     }
 
+    public void scoreReset(){
+        score = 0;
+    }
+
     public int getScore() {
         return score;
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.score += score;
     }
 
     public String getName() {
