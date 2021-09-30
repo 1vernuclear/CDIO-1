@@ -4,7 +4,10 @@ import java.util.Random;
 public class Die {
     private Random random = new Random();
     private int faceValue, numberOfSides;
-
+    /**
+     * Constructor sets amount of sides of die
+     * @param sides: int, defines number of sides
+     */
     public Die (int sides){
         numberOfSides = sides;
     }
