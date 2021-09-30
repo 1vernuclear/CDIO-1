@@ -7,7 +7,8 @@ public class Game {
     private int j = 1; //j is used to swap turns between the players. Value is set so player1 starts.
 
     public void play(){
-        //kalder 'slåomstart'-metoden fra Introduktions klassen.
+
+        //Call 'findPlayer1'-method from Introduktion class.
         intro.findPlayer1();
 
         Player player1 = new Player(intro.player1());
