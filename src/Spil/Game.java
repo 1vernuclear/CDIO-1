@@ -8,7 +8,7 @@ public class Game {
 
     public void play(){
         //kalder 'slåomstart'-metoden fra Introduktions klassen.
-        intro.slåOmStart();
+        intro.findPlayer1();
 
         Player player1 = new Player(intro.player1());
         Player player2 = new Player(intro.player2());

@@ -15,7 +15,7 @@ public class Introduction{
 
     private int i = 0; // The variable is taken into use, in case of a change of player
 
-    public void slåOmStart(){
+    public void findPlayer1(){
         player1 = new Player(inputName());
         System.out.println("Spiller1 = " + player1.getName());
         player2 = new Player(inputName());
