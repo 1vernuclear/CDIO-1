@@ -42,7 +42,7 @@ public class Gamelogic{
      * Instead the game will output the players win condition.
      *
      * The checks will be performed by individual methods for each case.
-     * @param x
+     * @param x: instance of player object
      */
     public void playerTurn(Player x) {
         player = x;
@@ -71,7 +71,7 @@ public class Gamelogic{
                 player.scoreReset(); //Sets players score to 0.
             }
             //if true player gets another turn.
-            else if(getEns()){
+            else if(getEqual()){
                 System.out.println("Fordi du slog to ens får du endnu en tur!");
                 i--;
             }
@@ -116,26 +116,26 @@ public class Gamelogic{
     //checks if throw is double six, and returns true in that case.
     public boolean doubleSix(int faceValue){
         boolean bool = false;
-        if(faceValue == 6 && getEns()) {
+        if(faceValue == 6 && getEqual()) {
             bool = true;
         }
         return bool;
     }
     //Method will be called if the previous throw was double six. Checks if next throw is also double six.
     public boolean doubleDoubleSix(){
-        if(getEns() && die1.getFaceValue() == 6) //If true gamewon var gets set to true.
+        if(getEqual() && die1.getFaceValue() == 6) //If true gamewon var gets set to true.
             gameWon = true;
         return gameWon;
     }
     //checks if throw was double 1. In that case it sets the players score to 0. Doesn't give player another throw.
     public boolean resetCheck(){
         boolean bool = false;
-        if((die1.getFaceValue() == 1) && getEns())
+        if((die1.getFaceValue() == 1) && getEqual())
             bool = true;
         return bool;
     }
     //Checks if Die 1 and 2 facevalues are the same. Gives player another throw if true.
-    public boolean getEns(){
+    public boolean getEqual(){
         boolean bool = false;
         if(die1.getFaceValue() == die2.getFaceValue())
             bool = true;
