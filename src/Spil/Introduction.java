@@ -66,8 +66,8 @@ public class Introduction{
         input.next();
     }
 
-    // If player 2 rolled the highest, then i=1. Hvis in turn makes player 2 the new player 1, and vice versa.
-    // The metode is used to initialize the player-constructor from the game class
+    // If player 2 rolled the highest, then i=1. Which in turn makes player 2 the new player 1, and vice versa.
+    // The method is used to initialize the player-constructor from the game class
     public String player1(){
         String name;
         if(i == 1)
@@ -85,7 +85,7 @@ public class Introduction{
             name = player2.getName();
         return name;
     }
-    public String inputName(){ // Metode to help the player-constructor
+    public String inputName(){ // Method to help the player-constructor
         System.out.print("Spiller indtast navn: ");
         return input.next();
     }
