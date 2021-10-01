@@ -16,7 +16,7 @@ public class Player {
         return score;
     }
 
-    public void setScore(int score) {
+    public void addScore(int score) {
         this.score += score;
     }
 
@@ -24,7 +24,7 @@ public class Player {
         return name;
     }
     public void setName(String name){
-        this.name = this.name;
+        this.name = name;
     }
 
 }

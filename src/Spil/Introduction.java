@@ -10,8 +10,8 @@ public class Introduction{
     private Player player1;
     private Player player2;
 
-    private Die die1 = new Die();
-    private Die die2 = new Die();
+    private final Die die1 = new Die();
+    private final Die die2 = new Die();
 
     private int i = 0; // The variable is taken into use, in case of a change of player
 
@@ -29,17 +29,17 @@ public class Introduction{
                 + "\ntastes et tilfældigt tal bogstav ind i konsolen. Derefter trykkes der på enter.");
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         System.out.print("Når i er klar til at starte: skriv \"start\" og tast enter: ");
-        userinput();
+        userInput();
 
         for(int j = 0; j < 1; j++) {
             // Player 1 rolls the dice
             System.out.print(player1.getName() + " rul terning: ");
-            userinput();
+            userInput();
             die1.rollDie();
             System.out.print(player1.getName() + " slog: " + die1.getFaceValue() + "\n");
             // Player 2 rolls the dice
             System.out.print(player2.getName() + " rul terning: ");
-            userinput();
+            userInput();
             die2.rollDie();
             System.out.println(player2.getName() + " slog: " + die2.getFaceValue());
 
@@ -57,17 +57,17 @@ public class Introduction{
             }// In the case of both players rolling the same, they are prompted to roll again
             else{
                 System.out.println("I slog begge: " + die1.getFaceValue() + "\nSlå igen..!" );
-                j--; // In case of rerolls, the process is repeated for j untill a winner is found
+                j--; // In case of rerolls, the process is repeated for j until a winner is found
             }
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         }
     }
-    public void userinput(){
+    public void userInput(){
         input.next();
     }
 
-    // If player 2 rolled the highest, then i=1. Hvis in turn makes player 2 the new player 1, and vice versa.
-    // The metode is used to initialize the player-constructor from the game class
+    // If player 2 rolled the highest, then i=1. This in turn makes player 2 the new player 1, and vice versa.
+    // The method is used to initialize the player-constructor from the game class
     public String player1(){
         String name;
         if(i == 1)
@@ -85,7 +85,7 @@ public class Introduction{
             name = player2.getName();
         return name;
     }
-    public String inputName(){ // Metode to help the player-constructor
+    public String inputName(){ // Method to help the player-constructor
         System.out.print("Spiller indtast navn: ");
         return input.next();
     }
