@@ -80,7 +80,7 @@ public class Gamelogic{
                 System.out.println(player.getName() + " har dermed en score på: " + player.getScore());
             //if players score is above 40 win condition will be printed.
             else if(player.getScore() >= 40 && gameWon != true)
-                System.out.println("Slå to ens for at vinde spillet!");
+                System.out.println("Du har opnået 40 point, slå to ens for at vinde spillet!");
             //marks each turn or run in the loop.
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
         }
