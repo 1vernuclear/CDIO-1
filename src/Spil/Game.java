@@ -8,6 +8,7 @@ public class Game {
 
         //Call 'findPlayer1'-method from Introduction class.
         intro.findPlayer1();
+        intro.rulesGame();
 
         Player player1 = new Player(intro.player1());
         Player player2 = new Player(intro.player2());

@@ -65,6 +65,23 @@ public class Introduction{
     public void userInput(){
         input.next();
     }
+    public void rulesGame(){
+        System.out.println("Reglerne for terningespillet er simple. Man skal slå med to terninger." +
+                "\nFor at vinde spillet skal man opnå 40 point og derefter slå 2 ens for at vinde spillet. " +
+                "\nPointene svarer til summen af terningernes øjne." +
+                "\nMan kan også vinde spillet ved at slå dobblet 6 to gange i streg." +
+                "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " +
+                "\nSpillerne slår skiftevis med terningerne når det er deres tur. " +
+                "\nEn spillers tur er på et slag medmindre at spilleren har fået et ekstra kast - se evt konsollen." +
+                "\nEt ekstra kast opnås ved at slå to ens. Dobbelt 1 tæller ikke som to ens i spillet. " +
+                "\nI stedet vil en spiller miste alle sine point, hvis man er uheldig og slår dette. " +
+                "\nDvs at man ikke vinder spillet ved at slå dobbelt 1 når man har 40+ point." +
+                "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - " +
+                "\nVinderen er den der først opfylder en af de to win-conditions." +
+                " Når en vinder er fundet slutter spillet." +
+                "\nHermed kan terningespillet begynde..! Spiller1 starter spillet ved at slå med ternignerne!" +
+                "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
+    }
 
     // If player 2 rolled the highest, then i=1. This in turn makes player 2 the new player 1, and vice versa.
     // The method is used to initialize the player-constructor from the game class
